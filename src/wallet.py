@@ -415,7 +415,7 @@ class WalletManager:
                 return None
             
             # Check if it's PyNaCl format
-            if data.get('algo') == 'argon2i_xsalsa20poly1305':
+            if str(data.get('algo', '')).endswith('_xsalsa20poly1305'):
                 print_info("Detected PyNaCl encrypted format. Converting to Rust format...")
                 
                 if password is None:
